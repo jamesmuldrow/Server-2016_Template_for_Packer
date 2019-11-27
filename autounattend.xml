@@ -27,7 +27,7 @@
             </ImageInstall>
             <UserData>
                 <ProductKey>
-                    <Key>PRODUCT KEY GOES HERE</Key>
+                    <Key>KEY-GOES-HERE</Key>
                     <WillShowUI>Never</WillShowUI>
                 </ProductKey>
                 <AcceptEula>true</AcceptEula>
