@@ -1,4 +1,4 @@
-variables.json
+*variables.json
 .DS_Store
 iso/en*
 output-vmware-iso/
