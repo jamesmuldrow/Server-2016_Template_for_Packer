@@ -1,0 +1,43 @@
+{
+    "builders": [{
+        "type": "vmware-iso",
+        "remote_type": "esx5",
+        "remote_host": "{{user `remote_host`}}",
+        "remote_port": "22",
+        "remote_datastore": "{{user `remote_datastore`}}",
+        "remote_username": "{{user `remote_username`}}",
+        "remote_password": "{{user `remote_password`}}",
+        "vnc_disable_password": "true",
+        "vm_name": "{{user `vm_name`}}",
+        "guest_os_type": "{{user `guest_os_type`}}",
+        "ssh_username": "{{user `ssh_username`}}",
+        "ssh_password": "{{user `ssh_password`}}",
+        "ssh_wait_timeout": "{{user `ssh_wait_timeout`}}",
+        "version":"{{user `version`}}",
+        "headless": "{{user `headless`}}",
+        "boot_wait": "{{user `boot_wait`}}",
+        "tools_upload_flavor": "windows",
+        "iso_url": "../iso/{{user `iso_name`}}",
+        "iso_checksum": "{{user `iso_checksum`}}",
+        "shutdown_command": "shutdown /s /t 10 /f /d p:4:1 /c \"AutoInstall Shutdown\"",
+        "disk_size": "{{user `disk_size`}}",
+        "vnc_port_min": 5900,
+        "vnc_port_max": 5980,
+        "cpus": "{{user `cpus`}}",
+        "memory": "{{user `memory`}}",
+        "floppy_files": [
+           "../autounattend.xml"
+         ],
+        "vmx_data": {
+            "RemoteDisplay.vnc.enabled": "false",
+            "RemoteDisplay.vnc.port": "5900",
+            "scsi0.virtualDev": "lsisas1068"
+        }
+    }],
+    "provisioners": [
+    {
+        "type": "file",
+        "source": "../executables/OpenSSH-Win64.zip",
+        "destination": "/c/Users/Administrator/Desktop"
+    }]
+}
