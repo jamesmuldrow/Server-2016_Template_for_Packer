@@ -1,0 +1,1 @@
+New-NetIPAddress -InterfaceAlias "Ethernet0" -IPAddress "10.10.10.100" -PrefixLength 24 -DefaultGateway 10.10.10.1

@@ -9,6 +9,7 @@
         "remote_password": "{{user `remote_password`}}",
         "vnc_disable_password": "true",
         "vm_name": "{{user `vm_name`}}",
+        "keep_registered": "true",
         "guest_os_type": "{{user `guest_os_type`}}",
         "ssh_username": "{{user `ssh_username`}}",
         "ssh_password": "{{user `ssh_password`}}",
@@ -26,18 +27,23 @@
         "cpus": "{{user `cpus`}}",
         "memory": "{{user `memory`}}",
         "floppy_files": [
-           "../autounattend.xml"
+           "../autounattend.xml",
+           "./scripts/"
          ],
         "vmx_data": {
             "RemoteDisplay.vnc.enabled": "false",
             "RemoteDisplay.vnc.port": "5900",
-            "scsi0.virtualDev": "lsisas1068"
+            "scsi0.virtualDev": "lsisas1068",
+            "ethernet0.networkName": "ESXi Servers"
         }
     }],
-    "provisioners": [
-    {
-        "type": "file",
-        "source": "../executables/OpenSSH-Win64.zip",
-        "destination": "/c/Users/Administrator/Desktop"
-    }]
+    "post-processors": [{
+        "type": "vsphere-template",
+        "host": "{{user `host`}}",
+        "insecure": true,
+        "username": "{{user `remote_username2`}}",
+        "password": "{{user `remote_password`}}",
+        "datacenter": "Datacenter",
+        "folder": "/TEMPLATES/"
+    }] 
 }
