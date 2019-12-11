@@ -27,5 +27,18 @@
             "RemoteDisplay.vnc.port": "5900",
             "scsi0.virtualDev": "lsisas1068"
         }
+    }],
+    "post-processors": [{
+        "type": "vsphere",
+        "cluster": "JCPX",
+        "datacenter": "Datacenter",
+        "datastore":"10.10.0.2",
+        "host":"10.10.0.6",
+        "esxi_host":"10.10.0.2",
+        "password": "PASSWORD_GOES_HERE",
+        "username": "administrator@vsphere.local",
+        "vm_name": "Windows_Server_2016_Template_CWO_Test",
+        "insecure": "true",
+        "vm_network": "ESXi Servers"
     }]
 }

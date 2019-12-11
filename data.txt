@@ -1,0 +1,15 @@
+ovftool --acceptAllEulas --name=Windows_Server_2016_Template_CWO_Test --datastore=10.10.0.2 --noSSLVerify=true --diskMode=thick --net:"nat"="ESXi Servers" output-vmware-iso/Windows_Server2016.vmx "vi://administrator%40vsphere.local@10.10.0.6/Datacenter/host/JCPX/?ip=10.10.0.2"
+
+"post-processors": [{
+        "type": "vsphere",
+        "cluster": "JCPX",
+        "datacenter": "Datacenter",
+        "datastore":"10.10.0.2",
+        "host":"10.10.0.6",
+        "esxi_host":"10.10.0.2",
+        "password": "PASSWORD_GOES_HERE",
+        "username": "administrator@vsphere.local",
+        "vm_name": "Windows_Server_2016_Template_CWO_Test",
+        "insecure": "true",
+        "vm_network": "ESXi Servers"
+    }]
